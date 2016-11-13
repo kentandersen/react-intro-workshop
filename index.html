@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Intro React-workshop</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/bekk/remark/master/dist/bekk.css">
+    <link rel="stylesheet" href="resources/style.css">
+  </head>
+  <body class="bekk-black">
+    <textarea id="source">
+
+class: front-page
+  # React intro
+  ## Frontendprogrammet
+
+  <span class="today-date"></span>
+
+---
+# hva er react?
+
+<img src="resources/function.png" style="
+  position: absolute;
+  left: 6rem;
+  top: 12rem;
+  width: 20rem;
+" />
+
+<span style="
+  position: absolute;
+  left: 35rem;
+  top: 11rem;
+  font-size: 11rem;
+  color: #fff;
+">
+  =
+</span>
+
+<img src="resources/gui.png" style="
+  position: absolute;
+  left: 51rem;
+  top: 12rem;
+  width: 14rem
+" />
+
+---
+
+
+#Hvordan fungerer react
+
+```
+import React, { Component } from 'react';
+
+class ShoppingList extends Component {
+
+}
+```
+
+---
+#Hvordan fungerer react
+
+```
+import React, { Component } from 'react';
+
+class ShoppingList extends Component {
+
+  render() {
+
+  }
+
+}
+```
+
+---
+#Hvordan fungerer react
+
+```
+import React, { Component } from 'react';
+
+class ShoppingList extends Component {
+
+  render() {
+    return React.createElement('div', {className: 'shopping-list'},
+      React.createElement('h1', ...),
+      React.createElement('ul', ...)
+    );
+  }
+
+}
+```
+
+---
+#Hvordan fungerer react
+
+```
+import React, { Component } from 'react';
+
+class ShoppingList extends Component {
+
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+        </ul>
+      </div>
+    );
+  }
+}
+```
+
+---
+#Hvordan fungerer react
+
+```
+import React, { Component } from 'react';
+import ReactDom from 'react-dom';
+
+class ShoppingList extends Component {
+
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+        </ul>
+      </div>
+    );
+  }
+}
+```
+--
+
+```
+ReactDOM.render(<ShoppingList />, document.getElementById('app'));
+```
+---
+
+#Hvordan fungerer react
+
+```
+class Child extends Component {
+  render() {
+    return <div>I am a child!</div>;
+  }
+}
+```
+
+--
+
+```
+class Parent extends Component {
+
+  render() {
+    return (
+      <div>
+        <Child />
+        <Child />
+        <Child />
+      </div>
+    );
+  }
+}
+```
+
+---
+
+#Hvordan fungerer react
+
+```
+class Child extends Component {
+  render() {
+    return <div>I am a child named {this.props.name}!</div>;
+  }
+}
+```
+
+```
+class Parent extends Component {
+
+  render() {
+    return (
+      <div>
+        <Child name="Per" />
+        <Child name="Pål" />
+        <Child name="Espen Askeladd" />
+      </div>
+    );
+  }
+}
+```
+
+---
+
+#Hvordan fungerer react
+
+```
+class OnOffButton extends Component {
+
+  render() {
+    return (
+      <button className="active">
+        {this.props.label}
+      </button>
+    );
+  }
+}
+```
+
+---
+#Hvordan fungerer react
+
+```
+class OnOffButton extends Component {
+
+  constructor() {
+    super();
+    this.state = { isOn: false };
+  }
+
+  render() {
+    return (
+      <button className="active">
+        {this.props.label}
+      </button>
+    );
+  }
+}
+```
+
+---
+
+#Hvordan fungerer react
+
+```
+class OnOffButton extends Component {
+
+  constructor() {
+    super();
+    this.state = { isOn: false };
+  }
+
+  render() {
+    return (
+      <button className={this.state.isOn ? 'active' : ''}>
+        {this.props.label}
+      </button>
+    );
+  }
+}
+```
+---
+#Hvordan fungerer react
+
+```
+class OnOffButton extends Component {
+
+  constructor() {
+    super();
+    this.state = { isOn: false };
+  }
+
+  handleClick() {
+    this.setState({ isOn: !this.state.isOn });
+  }
+
+  render() {
+    return (
+      <button className={this.state.isOn ? 'active' : ''} onClick={this.handleClick}>
+        {this.props.label}
+      </button>
+    );
+  }
+}
+```
+
+---
+
+<div class="browser">
+  <div class="title">Tutorial: Intro To React</div>
+  <div class="url">https://facebook.github.io/react/tutorial/tutorial.html</div>
+  <iframe src="https://facebook.github.io/react/tutorial/tutorial.html" style="background-color: #fff"/>
+</div>
+
+---
+
+<div class="browser">
+  <div class="title">CodePen - Tic Tac Toe</div>
+  <div class="url">https://s.codepen.io/ericnakagawa/debug/ALxakj</div>
+  <iframe src="https://s.codepen.io/ericnakagawa/debug/ALxakj" style="background-color: #fff"/>
+</div>
+
+---
+
+<div class="browser">
+  <div class="title">kentandersen - react-intro-workshop</div>
+  <div class="url">https://github.com/kentandersen/react-intro-workshop</div>
+  <div class="content">
+    <img src="resources/github.png" style="width:100%"/>
+  </div>
+</div>
+
+---
+#utviklingsmiljø
+
+```bash
+git clone git@github.com:kentandersen/react-intro-workshop.git
+npm install
+npm start
+```
+
+???
+* trenger ikke bruke codepen
+* kan droppe seksjonen om react devtool
+
+---
+
+class: center middle
+# Takk for i dag!
+
+
+</textarea>
+
+
+    <script src="https://cdn.rawgit.com/bekk/remark/master/vendor/remark.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLanguage: 'javascript',
+        highlightStyle: 'monokai',
+        navigation: {
+          scroll: false
+        }
+      });
+
+      var dateStr = new Date().toLocaleString('nb-NO', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.querySelector('.today-date').textContent = dateStr;
+    </script>
+
+  </body>
+</html>

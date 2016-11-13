@@ -1,1 +1,3 @@
-slides ligger på http://kentandersen.github.io/react-intro-workshop/
+Tutorial https://facebook.github.io/react/tutorial/tutorial.html#getting-started
+
+Slides https://kentandersen.github.io/react-intro-workshop/
